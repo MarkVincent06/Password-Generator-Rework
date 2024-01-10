@@ -1,2 +1,14 @@
+:root {
+  --darkblue: #1f2937;
+  --white: #fff;
+  --green: #4adf86;
+  --darkblue2: #273549;
+  --mediumgray: #d5d4d8;
+}
+
 body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  /* font-family: 'Karla', sans-serif; */
 }
