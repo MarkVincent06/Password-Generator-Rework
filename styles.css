@@ -10,5 +10,85 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
-  /* font-family: 'Karla', sans-serif; */
+  background-color: var(--darkblue);
+  display: grid;
+  place-items: center;
+}
+
+/* UTILITY */
+.break-line {
+  display: block;
+}
+
+.green-text {
+  color: var(--green);
+}
+
+/* CONTAINERS */
+.main-container {
+  width: 30rem;
+  height: 30rem;
+  margin-top: 4rem;
+  padding: 1.5rem 3.5rem;
+}
+
+.hori-line {
+  width: 100%;
+  height: 0.125rem;
+  background-color: #2f3e53;
+  margin: 30px 0;
+}
+
+.passwords-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* FONTS */
+.title {
+  color: var(--white);
+  font-family: "Karla", sans-serif;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: var(--mediumgray);
+  font-size: 1.35rem;
+}
+
+/* BUTTONS */
+.generate-p-btn {
+  margin-top: 30px;
+  background-color: #10b981;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.6rem 1.2rem;
+  font-family: Inter;
+  font-size: 1rem;
+  color: var(--white);
+  cursor: pointer;
+  transition: 200ms opacity ease-in-out;
+}
+
+/* HOVERS */
+.generate-p-btn:hover {
+  opacity: 0.8;
+}
+
+/* INPUTS */
+.generated-p-field {
+  width: 100%;
+  color: #55f991;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1rem;
+  padding: 10px 20px;
+  background-color: var(--darkblue2);
+  border: none;
+  border-radius: 0.375rem;
 }
