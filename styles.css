@@ -60,6 +60,16 @@ body {
 
 .p-field-container {
   display: flex;
+  position: relative;
+}
+
+/* ICONS */
+.copy-icon {
+  position: absolute;
+  right: 10px;
+  top: 25%;
+  color: var(--mediumgray);
+  cursor: pointer;
 }
 
 /* FONTS */
@@ -76,11 +86,6 @@ body {
   margin-bottom: 30px;
   color: var(--mediumgray);
   font-size: 1.15rem;
-}
-
-.clipboard-tip {
-  color: var(--mediumgray);
-  font-size: 0.8rem;
 }
 
 /* BUTTONS */
@@ -123,7 +128,6 @@ body {
   background-color: var(--darkblue2);
   border: none;
   border-radius: 0.375rem;
-  cursor: pointer;
 }
 
 /* LABELS */

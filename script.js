@@ -14,6 +14,8 @@ const generatePassButton = document.querySelector("#generate-p-btn");
 const passLengthCB = document.querySelector("#passLengthCB");
 const passLengthInput = document.querySelector("#passLengthInput");
 const symbolsNumCB = document.querySelector("#symbolsNumCB");
+const copyIconBtnOne = document.querySelector("#copy-icon-one");
+const copyIconBtnTwo = document.querySelector("#copy-icon-two");
 
 let passLength = 15;
 let generatedPassOne;
@@ -23,13 +25,12 @@ let isSymbolsNumsOn = true;
 passLengthInput.value = passLength;
 
 // Copying input field to clipboard
-// generatedPassFieldOne.addEventListener("click", function () {
-//   alert("Input field clicked!");
-//   console.log("Input field clicked!");
-// });
-
-// let copyText = generatedPassFieldOne
-// copyText
+copyIconBtnOne.addEventListener("click", () => {
+  copyTextToClipboard(generatedPassFieldOne);
+});
+copyIconBtnTwo.addEventListener("click", () => {
+  copyTextToClipboard(generatedPassFieldTwo);
+});
 
 passLengthCB.addEventListener("change", () => {
   if (passLengthCB.checked) {
@@ -66,6 +67,14 @@ generatePassButton.addEventListener("click", () => {
   generatedPassFieldOne.value = generatedPassOne;
   generatedPassFieldTwo.value = generatedPassTwo;
 });
+
+function copyTextToClipboard(generatedPassFieldEl) {
+  let copyText = generatedPassFieldEl;
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied the text: " + copyText.value);
+}
 
 function generateRandomChar() {
   if (isSymbolsNumsOn) {
