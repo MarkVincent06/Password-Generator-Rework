@@ -11,10 +11,49 @@ const characters = ["A","B","C","D","E","F","G","H",
 const generatedPassFieldOne = document.querySelector("#generated-p-field1");
 const generatedPassFieldTwo = document.querySelector("#generated-p-field2");
 const generatePassButton = document.querySelector("#generate-p-btn");
+const passLengthCB = document.querySelector("#passLengthCB");
+const passLengthInput = document.querySelector("#passLengthInput");
+const symbolsNumCB = document.querySelector("#symbolsNumCB");
 
 let passLength = 15;
 let generatedPassOne;
 let generatedPassTwo;
+let isSymbolsNumsOn = true;
+
+passLengthInput.value = passLength;
+
+// Copying input field to clipboard
+// generatedPassFieldOne.addEventListener("click", function () {
+//   alert("Input field clicked!");
+//   console.log("Input field clicked!");
+// });
+
+// let copyText = generatedPassFieldOne
+// copyText
+
+passLengthCB.addEventListener("change", () => {
+  if (passLengthCB.checked) {
+    passLength = 15;
+    passLengthInput.value = passLength;
+    passLengthInput.disabled = true;
+    passLengthInput.classList.toggle("disabled");
+  } else if (!passLengthCB.checked) {
+    passLengthInput.disabled = false;
+    passLengthInput.classList.toggle("disabled");
+  }
+});
+
+passLengthInput.addEventListener("change", () => {
+  passLength = passLengthInput.value;
+});
+
+symbolsNumCB.addEventListener("change", () => {
+  if (symbolsNumCB.checked) {
+    isSymbolsNumsOn = true;
+  } else if (!symbolsNumCB.checked) {
+    isSymbolsNumsOn = false;
+  }
+});
 
 generatePassButton.addEventListener("click", () => {
   generatedPassOne = "";
@@ -29,6 +68,16 @@ generatePassButton.addEventListener("click", () => {
 });
 
 function generateRandomChar() {
-  let randomIndex = Math.floor(Math.random() * characters.length);
-  return characters[randomIndex];
+  if (isSymbolsNumsOn) {
+    let randomIndex = Math.floor(Math.random() * characters.length);
+    return characters[randomIndex];
+  } else if (!isSymbolsNumsOn) {
+    const filteredCharacters = characters.filter(isAlphabetLetter);
+    let randomIndex = Math.floor(Math.random() * filteredCharacters.length);
+    return filteredCharacters[randomIndex];
+  }
+}
+
+function isAlphabetLetter(char) {
+  return /[a-zA-Z]/.test(char);
 }

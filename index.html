@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Karla:wght@400;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Password Generator Rework</title>
   </head>
@@ -18,26 +22,67 @@
         Generate a <span class="break-line green-text">random password</span>
       </h1>
       <p class="subtitle">Never use an insecure password again.</p>
+      <div class="settings-container">
+        <div class="length-container">
+          <div>
+            <input
+              type="checkbox"
+              id="passLengthCB"
+              name="defaultPassLength"
+              value="defaultPassLength"
+              checked
+            />
+            <label for="passLengthCB">Default password length</label>
+          </div>
+          <input
+            type="number"
+            class="disabled"
+            id="passLengthInput"
+            min="1"
+            max="15"
+            disabled
+          />
+        </div>
+        <div class="symbols-numbers-container">
+          <input
+            type="checkbox"
+            id="symbolsNumCB"
+            name="symbolsNumbers"
+            value="symbolsNumbers"
+            checked
+          />
+          <label for="symbolsNumCB">Include symbols & numbers</label>
+        </div>
+      </div>
       <button class="generate-p-btn" id="generate-p-btn">
         Generate passwords
       </button>
       <div class="hori-line"></div>
       <div class="passwords-container">
-        <input
-          class="generated-p-field"
-          id="generated-p-field1"
-          type="text"
-          disabled
-          value="eg<xWij@veiPUwK"
-        />
-        <input
-          class="generated-p-field"
-          id="generated-p-field2"
-          type="text"
-          disabled
-          value="eg<xWij@veiPUwK"
-        />
+        <div class="p-field-container">
+          <input
+            class="generated-p-field"
+            id="generated-p-field1"
+            type="text"
+            disabled
+            value=""
+          />
+          <i class="bi bi-clipboard-fill"></i>
+        </div>
+        <div class="p-field-container">
+          <input
+            class="generated-p-field"
+            id="generated-p-field2"
+            type="text"
+            disabled
+            value=""
+          />
+          <i class="bi bi-clipboard-fill"></i>
+        </div>
       </div>
+      <p class="clipboard-tip">
+        Note: Click on the generated password to copy to clipboard.
+      </p>
     </div>
     <script src="./script.js"></script>
   </body>
